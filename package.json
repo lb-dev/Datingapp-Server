@@ -1,0 +1,24 @@
+{
+  "name": "twolette-server",
+  "version": "1.0.0",
+  "description": "Backend for Twolette, a dating app.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lb-dev/Twolette-server.git"
+  },
+  "author": "Danny Jang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lb-dev/Twolette-server/issues"
+  },
+  "homepage": "https://github.com/lb-dev/Twolette-server#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "firebase-admin": "^7.2.0"
+  }
+}

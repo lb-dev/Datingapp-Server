@@ -59,3 +59,6 @@ typings/
 
 # next.js build output
 .next
+
+# Firebase service account credentials
+dutchpay-109be-firebase-adminsdk-fyvdn-29a5c3a567.json
