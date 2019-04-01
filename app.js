@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(JSON.stringify(serviceAccount)),
   databaseURL: 'https://dutchpay-109be.firebaseio.com'
 });
 
