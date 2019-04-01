@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const admin = require("firebase-admin");
 
-const serviceAccount = require(__dirname + "/dutchpay-109be-firebase-adminsdk-fyvdn-29a5c3a567.json");
+// const serviceAccount = require(__dirname + "/dutchpay-109be-firebase-adminsdk-fyvdn-29a5c3a567.json");
 
 const app = express();
 
@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(process.env),
   databaseURL: 'https://dutchpay-109be.firebaseio.com'
 });
 
@@ -44,6 +44,6 @@ app.post("/", function(req, res) {
     });
 });
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log("Server started at port 3000");
 });
