@@ -55,6 +55,13 @@ app.post("/", function(req, res) {
     });
 });
 
+app.get("/registeremail", function(req, res) {
+  var email = req.body.email;
+  var password = req.body.password;
+  var username = req.body.username;
+  res.send("Received email:" + email + ", password:" + password + ", username:" + username);
+});
+
 app.listen(process.env.PORT || 3000, function() {
   console.log("Server started at port 3000");
 });
