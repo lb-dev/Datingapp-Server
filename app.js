@@ -11,9 +11,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 admin.initializeApp({
-  credential: admin.credential.cert(
+  credential: admin.credential.cert({
     "private_key": process.env.private_key,
-    "client_email": process.env.client_email),
+    "client_email": process.env.client_email}),
   databaseURL: 'https://dutchpay-109be.firebaseio.com'
 });
 
