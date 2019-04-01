@@ -56,10 +56,29 @@ app.post("/", function(req, res) {
 });
 
 app.get("/registeremail", function(req, res) {
-  var email = req.body.email;
-  var password = req.body.password;
-  var username = req.body.username;
-  res.send("Received email:" + email + ", password:" + password + ", username:" + username);
+  admin.auth().createUser({
+      email: req.body.email,
+      password: req.body.password,
+      username: req.body.username
+    })
+    .then(function(userRecord) {
+      console.log("Successfully created new user: ", userRecord.uid);
+      let data = {
+        email: req.body.email,
+        username: req.body.username
+      };
+      db.collection('users').doc(userRecord.uid).set(data);
+
+      res.send("Success!");
+    })
+    .catch(function(error) {
+      console.log("Error creating new user: ", error);
+
+      res.send("Failure");
+    });
+  if ((email !== null) && (password !== null) && (username !== null)) {
+    res.json({"status": "0"});
+  }
 });
 
 app.listen(process.env.PORT || 3000, function() {
