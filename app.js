@@ -35,9 +35,12 @@ app.post("/", function(req, res) {
       };
       db.collection('users').doc(userRecord.uid).set(data);
 
+      res.send("Success!");
     })
     .catch(function(error) {
       console.log("Error creating new user: ", error);
+
+      res.send("Failure");
     });
 });
 
