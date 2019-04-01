@@ -56,7 +56,7 @@ app.post("/", function(req, res) {
 });
 
 app.post("/registeremail", function(req, res) {
-  console.log(req.body.email, req.body.password, req.body.username);
+  console.log(req.body);
   // admin.auth().createUser({
   //     email: req.body.email,
   //     password: req.body.password,
