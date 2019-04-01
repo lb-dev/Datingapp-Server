@@ -55,7 +55,8 @@ app.post("/", function(req, res) {
     });
 });
 
-app.get("/registeremail", function(req, res) {
+app.post("/registeremail", function(req, res) {
+  // console.log(req.body.email, req.body.password, req.body.username);
   admin.auth().createUser({
       email: req.body.email,
       password: req.body.password,
