@@ -56,17 +56,20 @@ app.post("/", function(req, res) {
 });
 
 app.post("/registeremail", function(req, res) {
-  console.log(req.body);
+  //console.log(req.body);
+  //New Line of Code added in attempt to parse JSON object
+  var obj = JSON.parse(req.body);
+
   admin.auth().createUser({
-      email: req.body.email,
-      password: req.body.password,
-      username: req.body.username
+      email: obj.email,
+      password: obj.password,
+      username: obj.username
     })
     .then(function(userRecord) {
       console.log("Successfully created new user: ", userRecord.uid);
       let data = {
-        email: req.body.email,
-        username: req.body.username
+        email: obj.email,
+        username: obj.username
       };
       db.collection('users').doc(userRecord.uid).set(data);
 
